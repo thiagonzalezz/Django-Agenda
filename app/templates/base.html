@@ -1,0 +1,21 @@
+<form method="POST">
+    {% csrf_token %}
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="email">Correo electronico:</label>
+    <input type="email" id="email" name="email">
+
+    <label for="mensaje">Mensaje:</label>
+    <textarea name="mensaje" id="mensaje" rows="4" required></textarea>
+
+    <button type="submit">Enviar</button>
+</form>
+
+{% if agendas %}
+    {% for agenda in agendas %}
+        <h3>{{agenda.nombre}}</h3>
+        <p>{{agenda.correo}}</p>
+        <p>{{agenda.mensaje}}</p>
+    {% endfor %}
+{% endif %}
